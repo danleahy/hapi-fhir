@@ -119,7 +119,7 @@
 
 		<!-- This example uses Derby embedded database. If you are using another database such as Mysql or Oracle, you may omit the following dependencies and replace them with an appropriate database client 
 			dependency for your database platform. -->
-		<dependency>
+<!-- 		<dependency>
 			<groupId>org.apache.derby</groupId>
 			<artifactId>derby</artifactId>
 		</dependency>
@@ -130,7 +130,15 @@
 		<dependency>
 			<groupId>org.apache.derby</groupId>
 			<artifactId>derbyclient</artifactId>
+		</dependency> -->
+
+		<!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
+		<dependency>
+		    <groupId>com.h2database</groupId>
+		    <artifactId>h2</artifactId>
+		    <version>1.4.192</version>
 		</dependency>
+
 
 		<!-- The following dependencies are only needed for automated unit tests, you do not neccesarily need them to run the example. -->
 		<dependency>

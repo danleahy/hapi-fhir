@@ -49,11 +49,11 @@ public class FhirServerConfig extends BaseJavaConfigDstu2 {
 	public DataSource dataSource() {
 		BasicDataSource retVal = new BasicDataSource();
 		//retVal.setDriver(new org.apache.derby.jdbc.EmbeddedDriver());
-		retVal.setDriver(new org.h2.Driver());
+		retVal.setDriver(new org.mariadb.jdbc.Driver());
 		//retVal.setUrl("jdbc:derby:directory:jpaserver_derby_files;create=true");
-		retVal.setUrl("jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE");
-		retVal.setUsername("");
-		retVal.setPassword("");
+		retVal.setUrl("jdbc:mariadb://localhost:3306/hapi;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE");
+		retVal.setUsername("hapi");
+		retVal.setPassword("hapi");
 		return retVal;
 	}
 
@@ -71,7 +71,7 @@ public class FhirServerConfig extends BaseJavaConfigDstu2 {
 	private Properties jpaProperties() {
 		Properties extraProperties = new Properties();
 		//extraProperties.put("hibernate.dialect", org.hibernate.dialect.DerbyTenSevenDialect.class.getName());//
-		extraProperties.put("hibernate.dialect", org.hibernate.dialect.H2Dialect.class.getName());
+		extraProperties.put("hibernate.dialect", org.hibernate.dialect.MySQLDialect.class.getName());
 		
 
 		extraProperties.put("hibernate.format_sql", "true");

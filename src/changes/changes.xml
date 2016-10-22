@@ -34,6 +34,11 @@
 				in implementing this feature!
 			</action>
 			<action type="add">
+				Android library now uses OkHttp client by default instead
+				of Apache HttpClient. This should lead to much simpler
+				support for Android in the future.
+			</action>
+			<action type="add">
 				Both client and server now use the new STU3 mime types by default
 				if running in STU3 mode (in other words, using an STU3 
 				FhirContext).
@@ -189,6 +194,32 @@
 				Add a new method to ReferenceClientParam which allows you to
 				pass in a number of IDs by a collection of Strings. Thanks to
 				Thomas Andersen for the pul request!
+			</action>
+			<action type="fix" issue="327">
+				When encoding a resource in JSON where the resource has
+				an extension with a value where the value is a reference to a 
+				contained resource, the reference value (e.g. "#1") did not
+				get serialized. Thanks to GitHub user @fw060 for reporting!
+			</action>
+			<action type="fix" issue="464">
+				ResponseHighlighterInterceptor now pretty-prints responses
+				by default unless the user has explicitly requested
+				a non-pretty-printed response (ie.
+				using <![CDATA[<code>?_pretty=false</code>]]>. Thanks to 
+				Allan Brohansen and Jens Villadsen for the suggestion!
+			</action>
+			<action type="add" issue="469">
+				Add a new JSON library abstraction layer to the JSON parser.
+				This contribution shouldn't have any end-user impact but does
+				make it easier to use the JSON parser to generate custom structures
+				for other purposes, and should allow us to support RDF more
+				easily at some point. Thanks to Bill Denton for the pull
+				request and the contribution!
+			</action>
+			<action type="add" issue="455">
+				DSTU1 Bundle encoder did not include the Bundle entry author in
+				the generated bundle. Thanks to Hannes Venter for the pull
+				request and contribution!
 			</action>
 		</release>
 		<release version="2.0" date="2016-08-30">

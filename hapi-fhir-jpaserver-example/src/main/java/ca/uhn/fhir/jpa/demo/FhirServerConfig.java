@@ -51,7 +51,8 @@ public class FhirServerConfig extends BaseJavaConfigDstu2 {
 		//retVal.setDriver(new org.apache.derby.jdbc.EmbeddedDriver());
 		retVal.setDriver(new org.mariadb.jdbc.Driver());
 		//retVal.setUrl("jdbc:derby:directory:jpaserver_derby_files;create=true");
-		retVal.setUrl("jdbc:mariadb://localhost:3306/hapi;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE");
+		//retVal.setUrl("jdbc:mariadb://localhost:3306/hapi;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE");
+		retVal.setUrl("jdbc:mariadb://localhost:3306/hapi");
 		retVal.setUsername("hapi");
 		retVal.setPassword("hapi");
 		return retVal;
